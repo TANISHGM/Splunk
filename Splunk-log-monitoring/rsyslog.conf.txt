@@ -1,0 +1,11 @@
+# /etc/rsyslog.conf
+# Example configuration for forwarding logs to Splunk
+
+# Load UDP module
+module(load="imudp")
+input(type="imudp" port="514")
+
+# Forward all logs (*) to Splunk server on port 514 (UDP)
+*.* @<SPLUNK_SERVER_IP>:514
+
+# End of config
